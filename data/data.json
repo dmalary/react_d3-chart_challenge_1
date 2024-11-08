@@ -1,0 +1,98 @@
+[
+  {
+    "key": "win",
+    "win_loss_totals": 6,
+    "appearances": 11,
+    "teams": 1
+  },
+  {
+    "key": "loss",
+    "win_loss_totals": 5,
+    "appearances": 11,
+    "teams": 1
+  },
+  {
+    "key": "win",
+    "win_loss_totals": 19,
+    "appearances": 8,
+    "teams": 4
+  },
+  {
+    "key": "loss",
+    "win_loss_totals": 13,
+    "appearances": 8,
+    "teams": 4
+  },
+  {
+    "key": "win",
+    "win_loss_totals": 4,
+    "appearances": 6,
+    "teams": 1
+  },
+  {
+    "key": "loss",
+    "win_loss_totals": 2,
+    "appearances": 6,
+    "teams": 1
+  },
+  {
+    "key": "win",
+    "win_loss_totals": 18,
+    "appearances": 5,
+    "teams": 6
+  },
+  {
+    "key": "loss",
+    "win_loss_totals": 12,
+    "appearances": 5,
+    "teams": 6
+  },
+  {
+    "key": "win",
+    "win_loss_totals": 3,
+    "appearances": 4,
+    "teams": 4
+  },
+  {
+    "key": "loss",
+    "win_loss_totals": 13,
+    "appearances": 4,
+    "teams": 4
+  },
+  {
+    "key": "win",
+    "win_loss_totals": 1,
+    "appearances": 3,
+    "teams": 2
+  },
+  {
+    "key": "loss",
+    "win_loss_totals": 5,
+    "appearances": 3,
+    "teams": 2
+  },
+  {
+    "key": "win",
+    "win_loss_totals": 5,
+    "appearances": 2,
+    "teams": 5
+  },
+  {
+    "key": "loss",
+    "win_loss_totals": 5,
+    "appearances": 2,
+    "teams": 5
+  },
+  {
+    "key": "win",
+    "win_loss_totals": 2,
+    "appearances": 1,
+    "teams": 5
+  },
+  {
+    "key": "loss",
+    "win_loss_totals": 3,
+    "appearances": 1,
+    "teams": 5
+  }
+]
