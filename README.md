@@ -9,6 +9,8 @@ React + Vite + d3
 charts:
 - https://observablehq.com/d/e571332b6fd9cbd0
 - https://observablehq.com/@d3/grouped-bar-chart/2
+- https://www.react-graph-gallery.com/histogram
+- https://www.react-graph-gallery.com/build-axis-with-react
 
 data conversion: 
 - https://csvjson.com/csv2json
