@@ -6,9 +6,22 @@ import BarChart from "../components/BarChart";
 
 function App() {
 
+  const specs = {
+    size: {
+      width: 800,
+      height: 600,
+    },
+    margin: {
+      top: 10,
+      right: 10,
+      bottom: 20,
+      left: 40,
+    },
+  }
+
   return (
     <>
-      <BarChart data={data}/>
+      <BarChart specs={specs} data={data}/>
     </>
   )
 }
