@@ -1,12 +1,14 @@
 import './App.css'
 
+import data from '../data/data.json'
+
 import BarChart from "../components/BarChart";
 
 function App() {
 
   return (
     <>
-      <BarChart width={800} height={600} data={[]}/>
+      <BarChart data={data}/>
     </>
   )
 }
