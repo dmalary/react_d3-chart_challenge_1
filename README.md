@@ -16,6 +16,8 @@ data conversion:
 - https://csvjson.com/csv2json
 
 next: 
-- labels/annotation
-- hover?
+- axes labels
+- annotation (title, summary)
 - legend
+- hover?
+- desktop only responiveness msg
