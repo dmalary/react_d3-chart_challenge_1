@@ -5,7 +5,7 @@ import * as d3 from 'd3';
 
 const BarChart = ({ specs, data }) => {
   // console.log('specs', specs)
-  console.log('data', data)
+  // console.log('data', data)
 
   const width = specs.size.width;
   const height = specs.size.height;
@@ -14,7 +14,7 @@ const BarChart = ({ specs, data }) => {
   const marginBottom = specs.margin.bottom;
   const marginLeft = specs.margin.left;
   
-  const boundWidth = width - marginLeft - marginRight;
+  // const boundWidth = width - marginLeft - marginRight;
   const boundHeight = height - marginTop - marginBottom;
   
   const axesRefs = useRef(null);
@@ -26,14 +26,14 @@ const BarChart = ({ specs, data }) => {
       .paddingInner(.1)
   }, [data, width, marginLeft, marginRight]);
 
-  const category = new Set(data.map(d => d.key));
-  console.log('category', category);
+  const category = useMemo(() => (new Set(data.map(d => d.key))), [data])
+  // console.log('category', category);
 
   const xScale = useMemo(() => {
     return d3.scaleBand()
       .domain(category)
       .range([0, fxScale.bandwidth()])
-      .padding(.05)
+      .padding(.03)
   }, [category, fxScale]);
 
   const yScale = useMemo(() => {
@@ -65,15 +65,16 @@ const BarChart = ({ specs, data }) => {
     svgEl
       .append('g')
       .attr('class', 'y-axis')
+      .attr('transform', `translate(${marginLeft}, 0)`)
       .call(yAxisGenerator);
-  }, [fxScale, yScale, boundHeight])
+  }, [marginLeft, fxScale, yScale, boundHeight])
   
   const groupRects = Array.from(d3.group(data, d => d.appearances));
   // console.log('groupRects', groupRects);
 
   const renderRects = groupRects.map(([apps, datum], i) => {
-    console.log('apps', apps)
-    console.log('datum', datum)
+    // console.log('apps', apps)
+    // console.log('datum', datum)
     return (
       <g key={i} transform={(`translate(${fxScale(apps)}, 0)`)}>
         {datum.map((el, n) => (
@@ -97,7 +98,12 @@ const BarChart = ({ specs, data }) => {
         height={height}
         style={{display: 'inline-block'}}
       >
+        <g
+          className={'chart-group'}
+          transform={`translate(${marginLeft}, ${marginTop})`}
+        >
         {renderRects}
+        </g>
         <g
           className={'axis-group'}
           ref={axesRefs}
