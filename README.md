@@ -14,3 +14,8 @@ charts:
 
 data conversion: 
 - https://csvjson.com/csv2json
+
+next: 
+- labels/annotation
+- hover?
+- legend
