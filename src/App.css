@@ -1,15 +1,23 @@
 body {
   background: #F5F5F5;
+  /* background: #f2f0ef; */
+  color: #000000;
 }
 
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: .5rem 2rem 2rem;
   text-align: center;  
 }
 
 .x-axis,
 .y-axis {
   color: #000000;
+}
+
+.annotation-layer {
+  text-align: left;
+  width: 900px;
+  padding: 1rem 2rem 2rem;
 }
