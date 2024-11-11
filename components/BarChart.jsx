@@ -48,7 +48,7 @@ const BarChart = ({ specs, data }) => {
   const colorScale = useMemo(() => {
     return d3.scaleOrdinal()
       .domain(category)
-      .range(["#FC766AFF", '#5B84B1FF'])
+      .range(["#00539CFF", '#EEA47FFF'])
       .unknown('#fff')
   }, [category]);
 

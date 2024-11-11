@@ -43,6 +43,10 @@ function App() {
         <p>This chart is a rebuild of my <a href='https://observablehq.com/d/e571332b6fd9cbd0'>Observable render</a>.</p>
         <p>Using ProFootballNetwork data for <a href="https://www.profootballnetwork.com/list-of-super-bowl-appearances-by-team/">Super Bowl Appearances by Team</a>, and <a href='https://www.profootballnetwork.com/super-bowl-winners-by-team/'>Most Super Bowl Wins by Team</a>, I drew a grouped bar chart to look at SuperBowl wins and losses (grouped by number of cumulative appearances).</p>
       </div>
+      <div className='legend'>
+        <div className='wins'>Wins</div>
+        <div className='losses'>Losses</div>
+      </div>
       <BarChart specs={specs} data={data}/>
     </>
     )

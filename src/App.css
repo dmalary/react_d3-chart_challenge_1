@@ -21,3 +21,44 @@ body {
   width: 900px;
   padding: 1rem 2rem 2rem;
 }
+
+.tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  padding: 4px;
+  transform: translateY(-50%);
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent rgba(0, 0, 0, 0.85) transparent transparent;
+  /* left: -10px; */
+  /* top: 50%; */
+  transform: translateY(-50%);
+}
+
+.legend {
+  color: #f5f5f5;
+  padding: 0 2rem 1rem;
+  /* text-align: right; */
+}
+
+.legend div {
+  width: 6rem;
+  padding: 2px 3px;
+  margin: 5px 0;
+}
+
+.wins {
+  background: #00539CFF;
+}
+
+.losses {
+  background: #EEA47FFF;
+}
