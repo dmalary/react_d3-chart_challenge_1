@@ -1,4 +1,4 @@
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import './App.css'
 
@@ -7,16 +7,16 @@ import data from '../data/data.json'
 import BarChart from "../components/BarChart";
 
 function App() {
-  // const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsSmallScreen(window.innerWidth < 768);
-  //   };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
+    };
     
-  //   window.addEventListener('resize', handleResize);
-  //   return () => window.removeEventListener('resize', handleResize);
-  // }, [setIsSmallScreen]);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [setIsSmallScreen]);
 
   const specs = {
     size: {
@@ -33,8 +33,8 @@ function App() {
 
   return (
     <>
-    {/* {!isSmallScreen ?
-    (<> */}
+    {!isSmallScreen ?
+    (<>
       <div className='annotation-layer'>
         <h1>Super bowl wins and losses</h1>
         <h4><i>30 day chart challenge, day 1: part to a whole</i></h4>
@@ -47,11 +47,11 @@ function App() {
       </div>
       <BarChart specs={specs} data={data}/>
     </>
-  //   )
-  //   :
-  //   (<div className='annotation-layer'>This chart is optimized for larger screens</div>)
-  // }
-  // </>
+    )
+    :
+    (<div className='annotation-layer'>This chart is optimized for larger screens</div>)
+  }
+  </>
   )
 }
 
