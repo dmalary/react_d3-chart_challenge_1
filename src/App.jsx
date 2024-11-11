@@ -33,9 +33,7 @@ function App() {
 
   return (
     <>
-    {isSmallScreen ?
-    (<div className='annotation-layer'>This chart is optimized for larger screens</div>)
-    :
+    {!isSmallScreen ?
     (<>
       <div className='annotation-layer'>
         <h1>Super bowl wins and losses</h1>
@@ -50,6 +48,8 @@ function App() {
       <BarChart specs={specs} data={data}/>
     </>
     )
+    :
+    (<div className='annotation-layer'>This chart is optimized for larger screens</div>)
   }
   </>
   )

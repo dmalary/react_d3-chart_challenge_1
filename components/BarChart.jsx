@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
-import { useRef, useMemo, useEffect, useState } from 'react';
+import { useRef, useMemo, useEffect, /*useState*/ } from 'react';
 
-import Tooltip from '../components/Tooltip'
+// import Tooltip from '../components/Tooltip'
 
 import * as d3 from 'd3';
 
 const BarChart = ({ specs, data }) => {
   // console.log('specs', specs)
   // console.log('data', data)
-  const [hovered, setHovered] = useState(null);
+  // const [hovered, setHovered] = useState(null);
 
   const width = specs.size.width;
   const height = specs.size.height;
@@ -111,14 +111,14 @@ const BarChart = ({ specs, data }) => {
             width={xScale.bandwidth()}
             height={boundHeight - yScale(el.win_loss_totals)}
             fill={colorScale(el.key)}
-            onMouseEnter={() => {
-              setHovered({
-                xPos: fxScale(apps) + xScale(el.key) + marginLeft,
-                yPos: yScale(el.win_loss_totals) + marginTop,
-                teams: el.teams,
-              })
-            }}
-            onMouseLeave={() => setHovered(null)}
+            // onMouseEnter={() => {
+            //   setHovered({
+            //     xPos: fxScale(apps) + xScale(el.key) + marginLeft,
+            //     yPos: yScale(el.win_loss_totals) + marginTop,
+            //     teams: el.teams,
+            //   })
+            // }}
+            // onMouseLeave={() => setHovered(null)}
           />
         ))}
       </g>
