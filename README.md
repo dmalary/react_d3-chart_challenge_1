@@ -6,6 +6,8 @@ Remake of my previous Observable based project.
 
 React + Vite + d3
 
+[chart link](https://dmalary.github.io/react_d3-chart_challenge_1/)
+
 charts:
 - https://observablehq.com/d/e571332b6fd9cbd0
 - https://observablehq.com/@d3/grouped-bar-chart/2
