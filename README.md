@@ -16,6 +16,4 @@ data conversion:
 - https://csvjson.com/csv2json
 
 next: 
-- legend
-- hover?
-- desktop only responiveness msg
+- tooltip?
