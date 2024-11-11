@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
-import { useRef, useMemo, useEffect } from 'react';
+import { useRef, useMemo, useEffect, useState } from 'react';
+
+import Tooltip from '../components/Tooltip'
 
 import * as d3 from 'd3';
 
 const BarChart = ({ specs, data }) => {
   // console.log('specs', specs)
   // console.log('data', data)
+  const [hovered, setHovered] = useState(null);
 
   const width = specs.size.width;
   const height = specs.size.height;
@@ -108,6 +111,14 @@ const BarChart = ({ specs, data }) => {
             width={xScale.bandwidth()}
             height={boundHeight - yScale(el.win_loss_totals)}
             fill={colorScale(el.key)}
+            onMouseEnter={() => {
+              setHovered({
+                xPos: fxScale(apps) + xScale(el.key) + marginLeft,
+                yPos: yScale(el.win_loss_totals) + marginTop,
+                teams: el.teams,
+              })
+            }}
+            onMouseLeave={() => setHovered(null)}
           />
         ))}
       </g>
@@ -115,23 +126,37 @@ const BarChart = ({ specs, data }) => {
   });
 
   return (
-    <svg
-      width={width + 2 * (marginLeft + marginRight)}
-      height={height + 2 * (marginTop + marginBottom)}
-      style={{display: 'inline-block'}}
-    >
-      <g
-        className={'chart-group'}
-        transform={`translate(${marginLeft}, ${marginTop})`}
+    <>
+      <svg
+        width={width + 2 * (marginLeft + marginRight)}
+        height={height + 2 * (marginTop + marginBottom)}
+        style={{display: 'inline-block'}}
       >
-      {renderRects}
-      </g>
-      <g
-        className={'axis-group'}
-        ref={axesRefs}
-        transform={`translate(${marginLeft}, ${marginTop})`}
-      />
-    </svg>
+        <g
+          className={'chart-group'}
+          transform={`translate(${marginLeft}, ${marginTop})`}
+        >
+        {renderRects}
+        </g>
+        <g
+          className={'axis-group'}
+          ref={axesRefs}
+          transform={`translate(${marginLeft}, ${marginTop})`}
+        />
+      </svg>
+      {/* {hovered && 
+      <div
+          style={{
+            position: "absolute",
+            top: hovered.yPos,
+            left: hovered.xPos + 15,
+            pointerEvents: "none",
+          }}
+        >
+          <Tooltip tipData={hovered} />
+        </div>
+      } */}
+      </>
   )
 
 }
