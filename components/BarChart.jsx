@@ -14,7 +14,7 @@ const BarChart = ({ specs, data }) => {
   const marginBottom = specs.margin.bottom;
   const marginLeft = specs.margin.left;
   
-  // const boundWidth = width - marginLeft - marginRight;
+  const boundWidth = width - marginLeft - marginRight;
   const boundHeight = height - marginTop - marginBottom;
   
   const axesRefs = useRef(null);
@@ -56,21 +56,41 @@ const BarChart = ({ specs, data }) => {
     const xAxisGenerator = d3.axisBottom(fxScale).tickSizeOuter(0);
     const yAxisGenerator = d3.axisLeft(yScale);
 
+    // X AXIS
     svgEl
       .append('g')
       .attr('class', 'x-axis')
       .attr('transform', `translate(0, ${boundHeight})`)
-      .call(xAxisGenerator)
-      // .call(g => g.selectAll('.domain').remove());
+      .call(xAxisGenerator);
+    // X AXIS LABEL
+    svgEl
+      .append('text')
+      .attr('class', 'x-axis-label')
+      .attr("font-size", 12)
+      .attr("text-anchor", "end")
+      .attr("x", boundWidth)
+      .attr("y", boundHeight + 35)
+      .text("Superbowl Appearances");
 
+    // Y AXIS
     svgEl
       .append('g')
       .attr('class', 'y-axis')
       .attr('transform', `translate(${marginLeft}, 0)`)
       .call(yAxisGenerator)
       .call(g => g.selectAll('.domain').remove());
+    // Y AXIS LABEL
+    svgEl
+      .append('text')
+      .attr('class', 'y-axis-label')
+      .attr("font-size", 12)
+      .attr("text-anchor", "end")
+      .attr("x", 100)
+      .attr("y", 0)
+      .text("Win/Loss count")
+      // .attr("transform", "rotate(-90)");
 
-  }, [marginLeft, fxScale, yScale, boundHeight])
+  }, [marginLeft, fxScale, yScale, boundWidth, boundHeight])
   
   const groupRects = Array.from(d3.group(data, d => d.appearances));
   // console.log('groupRects', groupRects);
@@ -96,8 +116,8 @@ const BarChart = ({ specs, data }) => {
 
   return (
     <svg
-      width={width}
-      height={height}
+      width={width + 2 * (marginLeft + marginRight)}
+      height={height + 2 * (marginTop + marginBottom)}
       style={{display: 'inline-block'}}
     >
       <g
