@@ -8,14 +8,14 @@ function App() {
 
   const specs = {
     size: {
-      width: 800,
+      width: 900,
       height: 600,
     },
     margin: {
       top: 10,
-      right: 10,
+      right: 20,
       bottom: 20,
-      left: 40,
+      left: 20,
     },
   }
 
