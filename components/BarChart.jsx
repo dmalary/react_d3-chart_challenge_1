@@ -53,7 +53,7 @@ const BarChart = ({ specs, data }) => {
     const svgEl = d3.select(axesRefs.current);
     svgEl.selectAll('*').remove();
 
-    const xAxisGenerator = d3.axisBottom(fxScale);
+    const xAxisGenerator = d3.axisBottom(fxScale).tickSizeOuter(0);
     const yAxisGenerator = d3.axisLeft(yScale);
 
     svgEl
@@ -61,12 +61,15 @@ const BarChart = ({ specs, data }) => {
       .attr('class', 'x-axis')
       .attr('transform', `translate(0, ${boundHeight})`)
       .call(xAxisGenerator)
+      // .call(g => g.selectAll('.domain').remove());
 
     svgEl
       .append('g')
       .attr('class', 'y-axis')
       .attr('transform', `translate(${marginLeft}, 0)`)
-      .call(yAxisGenerator);
+      .call(yAxisGenerator)
+      .call(g => g.selectAll('.domain').remove());
+
   }, [marginLeft, fxScale, yScale, boundHeight])
   
   const groupRects = Array.from(d3.group(data, d => d.appearances));
@@ -92,25 +95,23 @@ const BarChart = ({ specs, data }) => {
   });
 
   return (
-    <div>
-      <svg
-        width={width}
-        height={height}
-        style={{display: 'inline-block'}}
+    <svg
+      width={width}
+      height={height}
+      style={{display: 'inline-block'}}
+    >
+      <g
+        className={'chart-group'}
+        transform={`translate(${marginLeft}, ${marginTop})`}
       >
-        <g
-          className={'chart-group'}
-          transform={`translate(${marginLeft}, ${marginTop})`}
-        >
-        {renderRects}
-        </g>
-        <g
-          className={'axis-group'}
-          ref={axesRefs}
-          transform={`translate(${marginLeft}, ${marginTop})`}
-        />
-      </svg>
-    </div>
+      {renderRects}
+      </g>
+      <g
+        className={'axis-group'}
+        ref={axesRefs}
+        transform={`translate(${marginLeft}, ${marginTop})`}
+      />
+    </svg>
   )
 
 }
